@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+        <meta name="HandheldFriendly" content="True">
+
+        <title>IMBA-IT – Системный интегратор</title>
+        <meta name="keywords" content="IMBA-IT,системный интегратор,HPE">
+        <meta name="description" content="IMBA-IT – реализуем комплексные IТ-проекты">
+        <link rel="stylesheet" href="html/css/style.css">
+        <link rel="stylesheet" href="html/css/table.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-1.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-1.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192-1.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16-1.png">
+        <link rel="manifest" href="site-1.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab-1.svg" color="#da532c">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {{ render('navigation/index.html.twig') }}
+
+        {% endblock %}
+    </body>
+</html>
