@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<header class="header">
+    <div class="header__wrap inner">
+        <div class="header__inner">
+            <div class="header__wrapper">
+                <div class="header__box">
+                    <div class="header__item">
+                        <a href="/" class="header__logo logo">
+                            <img src="{{ asset('assets/html/img/logo.svg') }}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="header__box">
+                    <div class="header__item">
+                        <nav class="header__nav nav">
+                            {{ include('header/navigation/index.html.twig',  {'navigation' : navigation}) }}
+                        </nav>
+                        <button type="button" class="header-menu js-nav-mob-link"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+{% endblock %}

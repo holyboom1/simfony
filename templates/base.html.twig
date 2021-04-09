@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% block head %}
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+        <meta name="HandheldFriendly" content="True">
+
+        <title>{% block title %}IMBA-IT – Системный интегратор{% endblock %}</title>
+        <meta name="keywords" content="IMBA-IT,системный интегратор,HPE">
+        <meta name="description" content="IMBA-IT – реализуем комплексные IТ-проекты">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/apple-touch-icon-1.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon-32x32-1.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/android-chrome-192x192-1.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon-16x16-1.png') }}">
+        <link rel="manifest" href="{{ asset('assets/site-1.webmanifest') }}">
+        <link rel="mask-icon" href="{{ asset('assets/safari-pinned-tab-1.svg') }}" color="#da532c">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{ asset('assets/html/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/html/css/table.css') }}">
+        {% endblock %}
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        {% block body %}
+
+            {{ include('header/header.html.twig', {'navigation' : navigation}) }}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('assets/html/js/jquery-3.4.1.min.js') }}"></script>
+            <script src="{{ asset('assets/html/js/vendors.min.js') }}"></script>
+            <script src="{{ asset('assets/html/js/scripts.min.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
