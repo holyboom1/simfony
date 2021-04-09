@@ -1,0 +1,9 @@
+{% extends 'header/header.html.twig' %}
+
+{% block body %}
+{#    {% for navitation in Navitations  %}#}
+    {% for item in navigation %}
+        <a href="{{ item.url }}" class="nav__link js-menu-link">{{ item.name }}</a>
+    {% endfor %}
+
+{% endblock %}
