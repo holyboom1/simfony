@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="brand-box">
+        <div class="brand-box__wrap inner-box">
+            <div class="brand-box__inner">
+                <div class="brand-box__wrapper">
+                    {% for item in brands %}
+                    <div class="brand-box__box" data-aos="fade-up">
+                        <div class="brand-box__item">
+                            <div class="brand-box__img-box">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                    {{ item.svgcode | raw }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

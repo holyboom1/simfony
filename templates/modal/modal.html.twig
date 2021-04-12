@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="modal-overlay js-modal-overlay"></div>
+    <div id="feedback" class="modal js-modal">
+        <div class="modal__h-box js-modal-close"></div>
+        <form action="https://imba-it.ru/index" class="modal-form js-formsend js-modal-content"
+              data-result="#send-good"
+              method="post" autocomplete="off">
+            <input type="hidden" name="_token" value="JzotRmfKxe3Oqsqpi8EquHzp6gd9KTqeyzHNJh4p">
+            <button class="modal-form__close js-modal-close" type="button">
+                <span class="i-close"></span>
+            </button>
+            <div class="modal-form__content">
+                <div class="modal-form__title">
+                    обратная связь
+                </div>
+
+                <div class="modal-form__fields">
+                    <div class="modal-form__list">
+                        <div class="modal-form__box">
+
+                                {{ form(form.name)  }}
+
+
+{#                            <input type="text" placeholder="ФИО" class="modal-form__input input" name="name">#}
+                        </div>
+                        <div class="modal-form__box">
+                            <div class="modal-form-split">
+                                <div class="modal-form-split__inner">
+                                    <div class="modal-form-split__wrapper">
+                                        <div class="modal-form-split__box">
+                                            <div class="modal-form-split__item">
+                                                <div class="modal-form__box">
+                                                    {{ form_widget(form.email) }}
+{#                                                    <input type="email" placeholder="E-mail"#}
+{#                                                           class="modal-form__input input js-contact-group"#}
+{#                                                           id="form_email" name="email">#}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-form-split__separate">
+                                            и/или
+                                        </div>
+                                        <div class="modal-form-split__box">
+                                            <div class="modal-form-split__item">
+                                                <div class="modal-form__box">
+                                                    {{ form_widget(form.phone) }}
+{#                                                    <input type="tel" placeholder="Телефон"#}
+{#                                                           class="modal-form__input input js-contact-group js-phone"#}
+{#                                                           id="form_phone" name="phone">#}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-form__box">
+                            {{ form_widget(form.message) }}
+{#                            <textarea name="msg" placeholder="Комментарий"#}
+{#                                      class="modal-form__textarea textarea"></textarea>#}
+                        </div>
+                    </div>
+                    <div class="modal-form__checkbox-box">
+                        <label class="modal-form__checkbox checkbox">
+                            <input type="checkbox" name="agree" class="checkbox__input" checked="" required="">
+                            <div class="checkbox__name">Я даю согласие на обработку своих персональных данных и
+                                соглашаюсь с
+                                <a target="_blank"
+                                   href="uploads/files/gnpYCNZkXLsdpuSOInyRrrLvr0wS4tMKrkE97hNj.pdf">Политикой
+                                    конфиденциальности</a>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="modal-form__btn-box">
+{#                        {{ form(form.save) }}#}
+                        <button type="submit" class="modal-form__btn btn btn--type-1">
+                            отправить
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="steps-slider" id="why">
+        <div class="steps-slider__wrap">
+            <div class="steps-slider-el">
+                <div class="steps-slider-el__container swiper-container js-steps-slider">
+                    <div class="steps-slider-content__wrapper swiper-wrapper">
+
+                        {% for slide in slider %}
+                            <div class="steps-slider-content__box swiper-slide">
+                                <div class="steps-slider-content__item">
+                                    <div class="steps-slider-header">
+                                        <div class="steps-slider-header__inner inner-box">
+                                            <div class="steps-slider-header__wrapper">
+                                                <div class="steps-slider-header__box">
+                                                    <div class="steps-slider-header__item">
+                                                        <div class="steps-slider__title">
+                                                            <div class="page-title _top">
+                                                                {{ slide.name }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="steps-slider__pagination js-steps-slider-pagination">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="steps-slider-header__box">
+                                                    <div class="steps-slider-header__item">
+                                                        <div class="steps-slider__nav-box">
+                                                            <button type="button"
+                                                                    class="steps-slider__nav _prev js-steps-slider-prev">
+                                                                <span class="i-arrow-long"></span>
+                                                            </button>
+                                                            <button type="button"
+                                                                    class="steps-slider__nav _next _anim js-steps-slider-next">
+                                                                <span class="i-arrow-long"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="steps-slider-info inner-box">
+                                        <div class="steps-slider-info__inner">
+                                            <div class="steps-slider-info__wrapper">
+                                                <div class="steps-slider-info__box" data-aos="fade-up">
+                                                    <div class="steps-slider-info__item">
+                                                        <div class="steps-slider-info__name">
+                                                            {{ slide.text1 | raw }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="steps-slider-info__box" data-aos="fade-up">
+                                                    <div class="steps-slider-info__item">
+                                                        <div class="steps-slider-info__name">
+                                                            {{ slide.text2 | raw }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="steps-slider-info__box" data-aos="fade-up">
+                                                    <div class="steps-slider-info__item">
+                                                        <div class="steps-slider-info__name">
+                                                            {{ slide.text3 | raw }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="steps-slider-content">
+                                        {% if loop.index == 1 %}
+                                            <div class="steps-slider-content__wrapper">
+                                                <div class="steps-slider-content__add">
+                                                    <div class="steps-slider-content__el _type-1"></div>
+                                                    <div class="steps-slider-content__el _type-2"></div>
+                                                </div>
+                                                <div class="steps-slider-content__img-box">
+                                                    <div class="steps-slider-content__img">
+                                                        <img src="{{ asset( 'assets/') }}{{ slide.imgurl }}"
+                                                             alt="Проектирование">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if loop.index == 2 %}
+                                            <div class="steps-slider-content__wrapper">
+                                                <div class="steps-slider-content__add">
+                                                    <div class="steps-slider-content__el _type-3">
+                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                             alt="Внедрение">
+                                                    </div>
+                                                    <div class="steps-slider-content__el _type-4"></div>
+                                                    <div class="steps-slider-content__el _type-5"></div>
+                                                </div>
+                                                <div class="steps-slider-content__img-box">
+                                                    <div class="steps-slider-content__el _type-6"></div>
+                                                    <div class="steps-slider-content__img">
+                                                        <img src="{{ asset('assets/') }}{{ slide.img2url }}"
+                                                             alt="Внедрение">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if loop.index == 3 %}
+                                            <div class="steps-slider-content__wrapper">
+                                                <div class="steps-slider-content__add">
+                                                    <div class="steps-slider-content__el _type-7"></div>
+                                                    <div class="steps-slider-content__el _type-8"></div>
+                                                </div>
+                                                <div class="steps-slider-content__img-box">
+                                                    <div class="steps-slider-content__img">
+                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                             alt="Эксплуатация">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if loop.index == 4 %}
+                                            <div class="steps-slider-content__wrapper">
+                                                <div class="steps-slider-content__add">
+                                                    <div class="steps-slider-content__el _type-9">
+                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                             alt="Оптимизация">
+                                                    </div>
+                                                    <div class="steps-slider-content__el _type-10"></div>
+                                                </div>
+                                                <div class="steps-slider-content__img-box">
+                                                    <div class="steps-slider-content__img">
+                                                        <img src="{{ asset('assets/') }}{{ slide.img2url }}"
+                                                             alt="Оптимизация">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

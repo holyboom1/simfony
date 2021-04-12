@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="contacts-box" id="contacts">
+        <div class="contacts-box__wrap inner-box">
+            <div class="contacts-box__title-box">
+                <div class="contacts-box__title page-title _top">
+                    {{ config.blockname }}
+                </div>
+            </div>
+            <div class="contacts-box__content">
+                <div class="contacts-box-info">
+                    <div class="contacts-box-info__box" data-aos="fade-up">
+                        <a href="tel:{{ config.adminphone  }}" class="contacts-box-info__phone">{{ config.adminphone  }}</a>
+                        <a href="mailto:{{ config.adminemail  }}" class="contacts-box-info__email">{{ config.adminemail  }}</a>
+                    </div>
+                    <div class="contacts-box-info__box" data-aos="fade-up">
+                        <address class="contacts-box-info__desc">
+                            <p>{{ config.adress | raw }}</p>
+                        </address>
+                    </div>
+                    <div class="contacts-box-info__box" data-aos="fade-up">
+                        <a href="{{ config.maplink }}" target="_blank" class="contacts-box-info__map">Посмотреть
+                            на
+                            карте</a>
+                    </div>
+                </div>
+                <div class="contacts-box-btn">
+                    <div class="contacts-box-btn__box" data-aos="fade-up">
+                        <button type="button" class="contacts-box-btn__req btn btn--type-2 js-modal-link"
+                                data-id="#requisites">Реквизиты
+                        </button>
+                    </div>
+                    <div class="contacts-box-btn__box" data-aos="fade-up">
+                        <button type="button" class="contacts-box-btn__feedback btn btn--type-1 js-modal-link"
+                                data-id="#feedback">обратная связь
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts-box__top">
+                <button type="button" class="contacts-box__top-link js-scroll-head"></button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

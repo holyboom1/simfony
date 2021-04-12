@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="info-box-service3" class="modal js-modal">
+        <div class="modal__h-box js-modal-close"></div>
+        <div class="modal-form _full">
+            <button class="modal-form__close js-modal-close" type="button">
+                <span class="i-close"></span>
+            </button>
+            <div class="modal-form__content">
+                <div class="modal-form__title">
+                    {{ enq[0].mainname | raw }}
+                </div>
+                <div class="modal-form__typography">
+                    <div class="rq-list">
+                        <ul>
+                            {% for item in enq %}
+                                <li>{{ item.text | raw }}</li>
+                                {% if item.subtext %}
+                                    <ul>
+                                        {% for sub in item.subs %}
+                                            <li>{{ sub.subtext | raw }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

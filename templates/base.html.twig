@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        {% block head %}
+<head>
+    {% block head %}
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+        <meta name="viewport"
+              content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
         <meta name="HandheldFriendly" content="True">
 
         <title>{% block title %}IMBA-IT – Системный интегратор{% endblock %}</title>
@@ -23,19 +24,78 @@
             <link rel="stylesheet" href="{{ asset('assets/html/css/style.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/html/css/table.css') }}">
         {% endblock %}
-        {% endblock %}
+    {% endblock %}
 
-    </head>
-    <body>
+</head>
+<body>
 
-        {% block body %}
+{% block body %}
 
-            {{ include('header/header.html.twig', {'navigation' : navigation}) }}
-        {% endblock %}
-        {% block javascripts %}
-            <script src="{{ asset('assets/html/js/jquery-3.4.1.min.js') }}"></script>
-            <script src="{{ asset('assets/html/js/vendors.min.js') }}"></script>
-            <script src="{{ asset('assets/html/js/scripts.min.js') }}"></script>
-        {% endblock %}
-    </body>
+    {{ include('header/header.html.twig', {'navigation' : navigation}) }}
+    <div class="page">
+        <main class="page__main">
+            <div class="page-top">
+                <div class="page-top__header">
+
+                    {{ include('blocks/block1.html.twig', {'block1' : block1} ) }}
+
+
+                    {{ include('blocks/block2.html.twig', {'block2' : block2 , 'aboutCompany' : aboutCompany} ) }}
+
+                </div>
+                <div class="page-top__logo">
+                    <img src="{{ asset('assets/html/img/logo-big.svg') }}" alt="">
+                </div>
+            </div>
+
+            {{ include('blocks/slider.html.twig', {'slider' : slider}) }}
+
+            {{ include('blocks/block4.html.twig' , {'services' : services} ) }}
+
+            {{ include('blocks/block5.html.twig', {'solutions' : solutions} ) }}
+
+            <style>
+                .html_svg svg {
+                    height: 90px;
+                    width: 100%;
+                }
+            </style>
+
+            {{ include('blocks/brandBox.html.twig' , { 'brands' : brands }) }}
+
+            {{ include('blocks/contactBox.twig' , {'config' : config }) }}
+
+        </main>
+
+        {{ include('modal/modal.html.twig',{ 'form' : form}) }}
+
+        {{ include('modal/info.html.twig', {'req' : req , 'config': config }) }}
+
+
+        <div id="send-good" class="modal js-modal">
+            <div class="modal__h-box js-modal-close"></div>
+            <div class="modal-form _middle js-modal-content">
+                <button class="modal-form__close js-modal-close" type="button">
+                    <span class="i-close"></span>
+                </button>
+                <div class="modal-form__content">
+                    <div class="modal-form__title">
+                        Cпасибо за заявку
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ include('modal/equipment.html.twig', {'enq' : enq }) }}
+
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/html/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('assets/html/js/vendors.min.js') }}"></script>
+    <script src="{{ asset('assets/html/js/scripts.min.js') }}"></script>
+{% endblock %}
+</body>
 </html>

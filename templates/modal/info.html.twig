@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="requisites" class="modal js-modal">
+        <div class="modal__h-box js-modal-close"></div>
+        <div class="modal-form">
+            <button class="modal-form__close js-modal-close" type="button">
+                <span class="i-close"></span>
+            </button>
+            <div class="modal-form__content">
+                <div class="modal-form__title">
+                    {{ req[0].mainname }}
+                </div>
+                <div class="modal-form__typography">
+                    <div class="rq-list">
+                        <ul>
+                            {% for item in req %}
+                                <li>{{ item.text  | raw}}</li>
+                            {% endfor %}
+                        </ul>
+
+
+                        <ul>
+                            <li><a href="mailto:{{config.adminemail}}">{{config.adminemail}}</a></li>
+                            <li><a href="tel:{{config.adminphone}}">{{config.adminphone}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
