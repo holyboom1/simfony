@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\frontend;
 
 use App\Entity\Navigation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FeedbackRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FeedbackRepository::class)
@@ -15,26 +16,32 @@ class Feedback
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[Assert\Blank]
     private $id;
 
     /**
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
     private $name;
 
     /**
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
+    #[Assert\Email]
     private $email;
 
     /**
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
     private $phone;
 
     /**
      * @ORM\Column(type="text")
      */
+    #[Assert\NotBlank]
     private $message;
 
     public function getId(): ?int

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\frontend;
 
 use App\Entity\Aboutcompany;
 use App\Entity\Blocks;
@@ -8,15 +8,17 @@ use App\Entity\Brands;
 use App\Entity\Config;
 use App\Entity\Equipment;
 use App\Entity\Equipmentsubs;
+use App\Entity\Feedback;
 use App\Entity\Navigation;
 use App\Entity\Requisites;
 use App\Entity\Services;
 use App\Entity\Slider;
 use App\Entity\Solutions;
 use App\Entity\Solutionsitems;
-use App\Form\Feedback;
 use App\Form\FeedbackType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,9 +26,11 @@ class SiteController extends AbstractController
 {
 
     /**
-     * @Route ("/")
+     * @Route("/", name="main")
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
 
         $navigation = $this->getDoctrine()->getRepository(Navigation::class)->findBY(["lang" => "ru"], ['position' => 'ASC']);
@@ -49,18 +53,25 @@ class SiteController extends AbstractController
                 $enq[$i]->subs = $this->getDoctrine()->getRepository(Equipmentsubs::class)->findBy(['mainname' => $enq[$i]->getText(), 'lang' => 'ru']);
             }
         };
-//        print_r($enq);
-//
-//                $this->addFlash(
-//            'notice',
-//            'Ваши изменения сохранены!'
-//        );
-//        $feedback = new \App\Entity\Feedback();
-        $form = $this->createForm(FeedbackType::class);
-//        $form->handleRequest($request);
+
+        $fb = new Feedback();
+        $form = $this->createForm(FeedbackType::class, $fb);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($fb);
+            $em->flush();
+            unset($fb);
+            unset($form);
+            $fb = new Feedback();
+            $form = $this->createForm(FeedbackType::class, $fb);
+
+            return $this->redirect($request->getUri()) ;
 
 
-        return $this->render('base.html.twig', [
+        }
+        return $this->render('frontend/base.html.twig', [
             'navigation' => $navigation,
             'block1' => $block1,
             'block2' => $block2,
@@ -79,11 +90,4 @@ class SiteController extends AbstractController
     }
 
 
-//    /**
-//     * @Route ("/asd")
-//     */
-//    public function asd () : Response
-//    {
-//        return new Response("<h1>asdasdaa</h1>");
-//    }
 }

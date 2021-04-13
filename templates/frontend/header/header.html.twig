@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'frontend/base.html.twig' %}
 
 {% block body %}
 <header class="header">
@@ -15,7 +15,7 @@
                 <div class="header__box">
                     <div class="header__item">
                         <nav class="header__nav nav">
-                            {{ include('header/navigation/index.html.twig',  {'navigation' : navigation}) }}
+                            {{ include('frontend/header/navigation/index.html.twig',  {'navigation' : navigation}) }}
                         </nav>
                         <button type="button" class="header-menu js-nav-mob-link"></button>
                     </div>

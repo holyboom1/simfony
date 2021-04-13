@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'frontend/base.html.twig' %}
 
 {% block body %}
 
@@ -6,7 +6,7 @@
     <div id="feedback" class="modal js-modal">
         <div class="modal__h-box js-modal-close"></div>
 
-        <div class="modal-form js-formsend js-modal-content">
+        <div class="modal-form  js-modal-content">
             {{ form_start(form) }}
             {# <form action="https://imba-it.ru/index" class="modal-form js-formsend js-modal-content" #}
             {# data-result="#send-good" #}
@@ -79,10 +79,10 @@
                         </label>
                     </div>
                     <div class="modal-form__btn-box">
-                         {{ form(form.save) }}
-{#                        <button type="submit" class="modal-form__btn btn btn--type-1">#}
-{#                            отправить#}
-{#                        </button>#}
+{#                         {{ form(form.save) }}#}
+                        <button type="submit" class="modal-form__btn btn btn--type-1">
+                            отправить
+                        </button>
                     </div>
                 </div>
 

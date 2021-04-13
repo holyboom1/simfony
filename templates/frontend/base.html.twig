@@ -31,16 +31,16 @@
 
 {% block body %}
 
-    {{ include('header/header.html.twig', {'navigation' : navigation}) }}
+    {{ include('frontend/header/header.html.twig', {'navigation' : navigation}) }}
     <div class="page">
         <main class="page__main">
             <div class="page-top">
                 <div class="page-top__header">
 
-                    {{ include('blocks/block1.html.twig', {'block1' : block1} ) }}
+                    {{ include('frontend/blocks/block1.html.twig', {'block1' : block1} ) }}
 
 
-                    {{ include('blocks/block2.html.twig', {'block2' : block2 , 'aboutCompany' : aboutCompany} ) }}
+                    {{ include('frontend/blocks/block2.html.twig', {'block2' : block2 , 'aboutCompany' : aboutCompany} ) }}
 
                 </div>
                 <div class="page-top__logo">
@@ -48,11 +48,11 @@
                 </div>
             </div>
 
-            {{ include('blocks/slider.html.twig', {'slider' : slider}) }}
+            {{ include('frontend/blocks/slider.html.twig', {'slider' : slider}) }}
 
-            {{ include('blocks/block4.html.twig' , {'services' : services} ) }}
+            {{ include('frontend/blocks/block4.html.twig' , {'services' : services} ) }}
 
-            {{ include('blocks/block5.html.twig', {'solutions' : solutions} ) }}
+            {{ include('frontend/blocks/block5.html.twig', {'solutions' : solutions} ) }}
 
             <style>
                 .html_svg svg {
@@ -61,15 +61,15 @@
                 }
             </style>
 
-            {{ include('blocks/brandBox.html.twig' , { 'brands' : brands }) }}
+            {{ include('frontend/blocks/brandBox.html.twig' , { 'brands' : brands }) }}
 
-            {{ include('blocks/contactBox.twig' , {'config' : config }) }}
+            {{ include('frontend/blocks/contactBox.twig' , {'config' : config }) }}
 
         </main>
 
-        {{ include('modal/modal.html.twig',{ 'form' : form}) }}
+        {{ include('frontend/modal/modal.html.twig',{ 'form' : form}) }}
 
-        {{ include('modal/info.html.twig', {'req' : req , 'config': config }) }}
+        {{ include('frontend/modal/info.html.twig', {'req' : req , 'config': config }) }}
 
 
         <div id="send-good" class="modal js-modal">
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        {{ include('modal/equipment.html.twig', {'enq' : enq }) }}
+        {{ include('frontend/modal/equipment.html.twig', {'enq' : enq }) }}
 
     </div>
 
