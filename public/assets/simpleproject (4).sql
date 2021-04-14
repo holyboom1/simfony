@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 13 2021 г., 16:59
--- Версия сервера: 10.4.18-MariaDB
--- Версия PHP: 8.0.3
+-- Время создания: Апр 14 2021 г., 21:56
+-- Версия сервера: 10.4.17-MariaDB
+-- Версия PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,9 +45,9 @@ INSERT INTO `aboutcompany` (`id`, `position`, `lang`, `text`) VALUES
 (4, '4', 'ru', 'Предоставляем максимально полную информацию'),
 (5, '5', 'ru', 'Сопровождаем вас на всех этапах проекта'),
 (6, '6', 'ru', 'Планируем и выполняем работу четко и в срок'),
-(7, '7', 'ru', 'Адекватно и&nbsp;четко коммуницируем по&nbsp;любым вопросам, мы&nbsp;всегда\n                                                        на&nbsp;связи'),
-(8, '8', 'ru', 'Мы работаем на&nbsp;репутацию и&nbsp;заинтересованы в&nbsp;долгосрочных\n                                                        отношениях'),
-(9, '9', 'ru', 'Несем ответственность перед заказчиком на&nbsp;всех этапах\n                                                        проекта'),
+(7, '7', 'ru', 'Адекватно и четко коммуницируем по любым вопросам'),
+(8, '8', 'ru', 'Мы работаем на репутацию и заинтересованы в долгосрочных отношениях'),
+(9, '9', 'ru', 'Несем ответственность перед заказчиком на всех этапах проекта'),
 (10, '1', 'en', '123'),
 (11, '2', 'en', '123'),
 (12, '3', 'en', '123'),
@@ -349,10 +349,11 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`id`, `lang`, `name`, `text1`, `text2`, `text3`, `imgurl`, `img2url`) VALUES
-(1, 'ru', 'Проектирование', 'Сбор требований и&nbsp;анализ, разработка концепции', 'Проектирование, создание архитектуры', 'Поставка оборудования и&nbsp;ПО', 'images/7pQmb5zU2ZgHEYs2rfkDeDxp51V64opg0SmTqLu6.jpeg', NULL),
-(2, 'ru', 'Внедрение', 'Пуско — наладочные работы', 'Интеграция с&nbsp;системами заказчика', 'Документация', 'images/92tUWDNlJmFiQq0wIYQ9o8HWgwKqlnCPjVDtnZ2k.jpeg', 'images/QXpFSBLFEUaR4YmnR9JSv9dVgEPoy6RQE7UKbqAZ.jpeg'),
-(3, 'ru', 'Эксплуатация', 'Сопровождение, сервисная поддержка, консультирование специалистов заказчика', 'Проактивный мониторинг', 'Обучение персонала заказчика', 'images/B2v3FWoMFMzKdoTfpqJwtmqccvJQtqGhwbnZ4Qmn.jpeg', NULL),
-(4, 'ru', 'Оптимизация', 'Аудит, сбор обратной связи и&nbsp;новых требований', 'Разработка концепции развития', 'Формирование Roadmap по&nbsp;развитию и&nbsp;улучшению,\n                                                        модернизации IТ-услуги', 'images/qNVYbAfSa4LSVCfx5zAGQBjBHEikUx8EgPIq3tXP.jpeg', 'images/spKKhfeSoZRdnte2WjB73hG8d8LIz7oeh0umsb9Q.jpeg');
+(1, 'ru', '<div>Проектирование</div>', '<div>Сбор требований и анализ, разработка концепции</div>', '<div>Проектирование, создание архитектуры</div>', '<div>Поставка оборудования и ПО</div>', '7pQmb5zU2ZgHEYs2rfkDeDxp51V64opg0SmTqLu6.jpg', NULL),
+(2, 'ru', 'Внедрение', 'Пуско — наладочные работы', 'Интеграция с&nbsp;системами заказчика', 'Документация', '92tUWDNlJmFiQq0wIYQ9o8HWgwKqlnCPjVDtnZ2k.jpeg', 'QXpFSBLFEUaR4YmnR9JSv9dVgEPoy6RQE7UKbqAZ.jpeg'),
+(3, 'ru', 'Эксплуатация', 'Сопровождение, сервисная поддержка, консультирование специалистов заказчика', 'Проактивный мониторинг', 'Обучение персонала заказчика', 'B2v3FWoMFMzKdoTfpqJwtmqccvJQtqGhwbnZ4Qmn.jpeg', NULL),
+(4, 'ru', 'Оптимизация', 'Аудит, сбор обратной связи и&nbsp;новых требований', 'Разработка концепции развития', 'Формирование Roadmap по&nbsp;развитию и&nbsp;улучшению,\n                                                        модернизации IТ-услуги', 'qNVYbAfSa4LSVCfx5zAGQBjBHEikUx8EgPIq3tXP.jpeg', 'spKKhfeSoZRdnte2WjB73hG8d8LIz7oeh0umsb9Q.jpeg'),
+(6, 'ab', '<div>qwe</div>', '<div>qwe</div>', '<div>qwe</div>', '<div>qwe</div>', '19. Самолеты.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -519,19 +520,6 @@ ALTER TABLE `solutions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `solutionsitems`
---
-ALTER TABLE `solutionsitems`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
-
---
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -542,46 +530,10 @@ ALTER TABLE `aboutcompany`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT для таблицы `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT для таблицы `blocks`
 --
 ALTER TABLE `blocks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `brands`
---
-ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT для таблицы `config`
---
-ALTER TABLE `config`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT для таблицы `equipment`
---
-ALTER TABLE `equipment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT для таблицы `equipmentsubs`
---
-ALTER TABLE `equipmentsubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT для таблицы `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `navigation`
@@ -590,40 +542,10 @@ ALTER TABLE `navigation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблицы `requisites`
---
-ALTER TABLE `requisites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT для таблицы `services`
---
-ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT для таблицы `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT для таблицы `solutions`
---
-ALTER TABLE `solutions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT для таблицы `solutionsitems`
---
-ALTER TABLE `solutionsitems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT для таблицы `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

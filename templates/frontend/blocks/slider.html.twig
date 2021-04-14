@@ -19,7 +19,7 @@
                                                     <div class="steps-slider-header__item">
                                                         <div class="steps-slider__title">
                                                             <div class="page-title _top">
-                                                                {{ slide.name }}
+                                                                {{ slide.name | raw }}
                                                             </div>
                                                         </div>
                                                         <div class="steps-slider__pagination js-steps-slider-pagination">
@@ -79,7 +79,7 @@
                                                 </div>
                                                 <div class="steps-slider-content__img-box">
                                                     <div class="steps-slider-content__img">
-                                                        <img src="{{ asset( 'assets/') }}{{ slide.imgurl }}"
+                                                        <img src="{{ asset( 'uploads/images/') }}{{ slide.imgurl }}"
                                                              alt="Проектирование">
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@
                                             <div class="steps-slider-content__wrapper">
                                                 <div class="steps-slider-content__add">
                                                     <div class="steps-slider-content__el _type-3">
-                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                        <img src="{{  asset( 'uploads/images/') }}{{ slide.imgurl }}"
                                                              alt="Внедрение">
                                                     </div>
                                                     <div class="steps-slider-content__el _type-4"></div>
@@ -99,7 +99,7 @@
                                                 <div class="steps-slider-content__img-box">
                                                     <div class="steps-slider-content__el _type-6"></div>
                                                     <div class="steps-slider-content__img">
-                                                        <img src="{{ asset('assets/') }}{{ slide.img2url }}"
+                                                        <img src="{{  asset( 'uploads/images/') }}{{ slide.img2url }}"
                                                              alt="Внедрение">
                                                     </div>
                                                 </div>
@@ -114,7 +114,7 @@
                                                 </div>
                                                 <div class="steps-slider-content__img-box">
                                                     <div class="steps-slider-content__img">
-                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                        <img src="{{  asset( 'uploads/images/') }}{{ slide.imgurl }}"
                                                              alt="Эксплуатация">
                                                     </div>
                                                 </div>
@@ -125,14 +125,14 @@
                                             <div class="steps-slider-content__wrapper">
                                                 <div class="steps-slider-content__add">
                                                     <div class="steps-slider-content__el _type-9">
-                                                        <img src="{{ asset('assets/') }}{{ slide.imgurl }}"
+                                                        <img src="{{  asset( 'uploads/images/') }}{{ slide.imgurl }}"
                                                              alt="Оптимизация">
                                                     </div>
                                                     <div class="steps-slider-content__el _type-10"></div>
                                                 </div>
                                                 <div class="steps-slider-content__img-box">
                                                     <div class="steps-slider-content__img">
-                                                        <img src="{{ asset('assets/') }}{{ slide.img2url }}"
+                                                        <img src="{{  asset( 'uploads/images/') }}{{ slide.img2url }}"
                                                              alt="Оптимизация">
                                                     </div>
                                                 </div>
