@@ -44,6 +44,11 @@ class Feedback
     #[Assert\NotBlank]
     private $message;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $create_at;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +98,18 @@ class Feedback
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getCreateAt(): ?\DateTimeInterface
+    {
+        return $this->create_at;
+    }
+
+    public function setCreateAt(\DateTimeInterface $create_at): self
+    {
+        $this->create_at = $create_at;
 
         return $this;
     }

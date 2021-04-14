@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NavigationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @ORM\Entity(repositoryClass=NavigationRepository::class)
@@ -18,7 +19,7 @@ class Navigation
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="integer")
      */
     private $position;
 
@@ -49,9 +50,11 @@ class Navigation
 
     public function setPosition(string $position): self
     {
+
         $this->position = $position;
 
         return $this;
+
     }
 
     public function getLang(): ?string
