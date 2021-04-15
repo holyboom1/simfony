@@ -91,14 +91,15 @@ class NavigationCrudController extends AbstractCrudController
         $entityThis = $this->getDoctrine()->getRepository(Navigation::class)->findOneBy(['id'=>$id]);
         $positionNow = $entityThis->getPosition();
         $entityOther= $this->getDoctrine()->getRepository(Navigation::class)->findOneBy(['position'=>$positionNow+1]);
-        $entityThis->setPosition($positionNow+1);
-        $entityOther->setPosition($positionNow);
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($entityThis);
-        $em->flush();
-        $em->persist($entityOther);
-        $em->flush();
-
+        if ($entityOther) {
+            $entityThis->setPosition($positionNow + 1);
+            $entityOther->setPosition($positionNow);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entityThis);
+            $em->flush();
+            $em->persist($entityOther);
+            $em->flush();
+        };
         $url = $this->get(AdminUrlGenerator::class)
             ->setAction(Action::INDEX)
             ->setEntityId($context->getEntity()->getPrimaryKeyValue())

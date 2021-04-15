@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 14 2021 г., 21:56
--- Версия сервера: 10.4.17-MariaDB
--- Версия PHP: 8.0.2
+-- Время создания: Апр 15 2021 г., 16:44
+-- Версия сервера: 10.4.18-MariaDB
+-- Версия PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,9 +45,9 @@ INSERT INTO `aboutcompany` (`id`, `position`, `lang`, `text`) VALUES
 (4, '4', 'ru', 'Предоставляем максимально полную информацию'),
 (5, '5', 'ru', 'Сопровождаем вас на всех этапах проекта'),
 (6, '6', 'ru', 'Планируем и выполняем работу четко и в срок'),
-(7, '7', 'ru', 'Адекватно и четко коммуницируем по любым вопросам'),
-(8, '8', 'ru', 'Мы работаем на репутацию и заинтересованы в долгосрочных отношениях'),
-(9, '9', 'ru', 'Несем ответственность перед заказчиком на всех этапах проекта'),
+(7, '7', 'ru', 'Адекватно и&nbsp;четко коммуницируем по&nbsp;любым вопросам, мы&nbsp;всегда\n                                                        на&nbsp;связи'),
+(8, '8', 'ru', 'Мы работаем на&nbsp;репутацию и&nbsp;заинтересованы в&nbsp;долгосрочных\n                                                        отношениях'),
+(9, '9', 'ru', 'Несем ответственность перед заказчиком на&nbsp;всех этапах\n                                                        проекта'),
 (10, '1', 'en', '123'),
 (11, '2', 'en', '123'),
 (12, '3', 'en', '123'),
@@ -57,19 +57,6 @@ INSERT INTO `aboutcompany` (`id`, `position`, `lang`, `text`) VALUES
 (16, '7', 'en', '123'),
 (17, '8', 'en', '123'),
 (18, '9', 'en', '123');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -145,7 +132,8 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `admin_name`, `admin_email`, `admin_phone`, `adress`, `maplink`, `blockname`, `lang`) VALUES
-(1, 'admin', 'hello@imba-it.ru', '+74959693977', '<div>117246, город Москва<br>&nbsp;Научный проезд, д. 14А, стр. 1, офис 4.5</div>', 'http://maps/-/CKue7Bkj.html', 'Контакты', 'ru');
+(1, 'admin', 'hello@imba-it.ru', '+74959693977', '<div>117246, город Москва<br>&nbsp;Научный проезд, д. 14А, стр. 1, офис 4.5</div>', 'http://maps/-/CKue7Bkj.html', 'Контакты', 'ru'),
+(3, 'admin', 'hello@imba-it.ru', '+74959693977', '<div>117246, город Москва<br>&nbsp;Научный проезд, д. 14А, стр. 1, офис 4.5</div>', 'http://maps/-/CKue7Bkj.html', 'Контакты', 'en');
 
 -- --------------------------------------------------------
 
@@ -224,29 +212,35 @@ CREATE TABLE `feedback` (
   `name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL
+  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `name`, `email`, `phone`, `message`) VALUES
-(1, 'qwe', 'lesha744@gmail.com', '+375297486061', 'qweqwe'),
-(2, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd'),
-(3, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd'),
-(4, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd'),
-(5, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asdasd'),
-(6, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'asda'),
-(7, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd'),
-(8, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd'),
-(9, 'asd', 'lesha744@gmail.com', '+375297486061', 'asdad'),
-(10, 'qwe', 'lesha744@gmail.com', '+375297486061', '56+656'),
-(11, 'qwesdf', 'lesha744@gmail.com', '+375297486061', '56+656'),
-(12, 'qwesdf', 'lesha744@gmail.com', '+375297486061', '56+656'),
-(13, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asda'),
-(14, 'qweQWEQWE', 'lesha744@gmail.com', '+375297486061', 'wdgtqrg'),
-(15, 'qweQWEQWE', 'lesha744@gmail.com', '+375297486061', 'aehERYH');
+INSERT INTO `feedback` (`id`, `name`, `email`, `phone`, `message`, `create_at`) VALUES
+(1, 'qwe', 'lesha744@gmail.com', '+375297486061', 'qweqwe', '2021-04-14 10:38:25'),
+(2, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd', '2021-04-14 10:42:25'),
+(3, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd', '2021-04-14 10:38:25'),
+(4, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qweqweasd', '2021-04-14 10:42:25'),
+(5, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asdasd', '2021-04-14 10:42:25'),
+(6, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'asda', '2021-04-12 10:42:25'),
+(7, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd', '2021-04-14 10:42:25'),
+(8, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd', '2021-04-14 10:42:25'),
+(9, 'asd', 'lesha744@gmail.com', '+375297486061', 'asdad', '2021-04-14 10:42:25'),
+(10, 'qwe', 'lesha744@gmail.com', '+375297486061', '56+656', '2021-04-14 10:42:25'),
+(11, 'qwesdf', 'lesha744@gmail.com', '+375297486061', '56+656', '2021-04-14 10:42:25'),
+(12, 'qwesdf', 'lesha744@gmail.com', '+375297486061', '56+656', '2021-04-14 10:42:25'),
+(13, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asda', '2021-04-14 10:42:25'),
+(14, 'qweQWEQWE', 'lesha744@gmail.com', '+375297486061', 'wdgtqrg', '2021-04-14 10:42:25'),
+(15, 'qweQWEQWE', 'lesha744@gmail.com', '+375297486061', 'aehERYH', '2021-04-14 10:42:25'),
+(16, 'qwe', 'lesha744@gmail.comqwe', '+375297486061', 'eqweqwqwe', '2021-04-14 10:42:25'),
+(17, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'qwe', '2021-04-14 10:42:25'),
+(18, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd', '2021-04-14 10:42:25'),
+(19, 'qwesdf', 'lesha744@gmail.com', '+375297486061', 'asd', '2021-04-14 10:42:25'),
+(20, 'qwe', 'lesha744@gmail.com', '+375297486061', 'asd', '2021-04-14 09:59:37');
 
 -- --------------------------------------------------------
 
@@ -256,22 +250,22 @@ INSERT INTO `feedback` (`id`, `name`, `email`, `phone`, `message`) VALUES
 
 CREATE TABLE `navigation` (
   `id` int(11) NOT NULL,
-  `lang` text NOT NULL,
-  `position` int(11) DEFAULT NULL,
-  `name` longtext DEFAULT NULL,
-  `url` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `position` int(11) NOT NULL,
+  `lang` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` longtext COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `navigation`
 --
 
-INSERT INTO `navigation` (`id`, `lang`, `position`, `name`, `url`) VALUES
-(1, 'ru', 1, 'О компании', '#about'),
-(2, 'ru', 2, 'Почему мы', '#why'),
-(3, 'ru', 3, 'Услуги', '#services'),
-(4, 'ru', 4, 'Решения', '#solutions'),
-(5, 'ru', 5, 'Контакты', '#contacts');
+INSERT INTO `navigation` (`id`, `position`, `lang`, `name`, `url`) VALUES
+(1, 1, 'ru', 'О компании', '#about'),
+(2, 3, 'ru', 'Почему мы', '#why'),
+(3, 2, 'ru', 'Услуги', '#services'),
+(4, 4, 'ru', 'Решения', '#solutions'),
+(5, 5, 'ru', 'Контакты', '#contacts');
 
 -- --------------------------------------------------------
 
@@ -283,7 +277,7 @@ CREATE TABLE `requisites` (
   `id` int(11) NOT NULL,
   `lang` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `main_name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `text` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -311,8 +305,8 @@ CREATE TABLE `services` (
   `position` int(11) NOT NULL,
   `mainname` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `src` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `urltext` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `src` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urltext` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -320,11 +314,11 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `lang`, `position`, `mainname`, `name`, `src`, `urltext`) VALUES
-(1, 'ru', 1, 'Услуги', 'Аудит инфраструктуры ', NULL, NULL),
-(2, 'ru', 2, 'Услуги', 'Аутсорсинг IТ, сервисная поддержка', NULL, NULL),
-(3, 'ru', 3, 'Услуги', 'Поставка оборудования и&nbsp;ПО', NULL, 'подробнее'),
-(4, 'ru', 4, 'Услуги', 'Выполнение комплексных проектов по&nbsp;внедрению\n                                    IТ-сервисов', NULL, NULL),
-(5, 'ru', 5, 'Услуги', 'Выполнение проектов по&nbsp;миграции', NULL, NULL),
+(1, 'ru', 1, 'Услуги', 'Аудит инфраструктуры ', '', ''),
+(2, 'ru', 2, 'Услуги', 'Аутсорсинг IТ, сервисная поддержка', '', ''),
+(3, 'ru', 3, 'Услуги', 'Поставка оборудования и&nbsp;ПО', '', 'подробнее'),
+(4, 'ru', 4, 'Услуги', 'Выполнение комплексных проектов по&nbsp;внедрению\n                                    IТ-сервисов', '', ''),
+(5, 'ru', 5, 'Услуги', 'Выполнение проектов по&nbsp;миграции', '', ''),
 (6, 'ru', 6, 'Услуги', 'Решения на базе тонких клиентов HP', 'solutions/thin.html', 'подробнее');
 
 -- --------------------------------------------------------
@@ -340,8 +334,8 @@ CREATE TABLE `slider` (
   `text1` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `text2` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `text3` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `imgurl` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `img2url` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `imgurl` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img2url` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -349,11 +343,10 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`id`, `lang`, `name`, `text1`, `text2`, `text3`, `imgurl`, `img2url`) VALUES
-(1, 'ru', '<div>Проектирование</div>', '<div>Сбор требований и анализ, разработка концепции</div>', '<div>Проектирование, создание архитектуры</div>', '<div>Поставка оборудования и ПО</div>', '7pQmb5zU2ZgHEYs2rfkDeDxp51V64opg0SmTqLu6.jpg', NULL),
+(1, 'ru', 'Проектирование', 'Сбор требований и&nbsp;анализ, разработка концепции', 'Проектирование, создание архитектуры', 'Поставка оборудования и&nbsp;ПО', '7pQmb5zU2ZgHEYs2rfkDeDxp51V64opg0SmTqLu6.jpg', ''),
 (2, 'ru', 'Внедрение', 'Пуско — наладочные работы', 'Интеграция с&nbsp;системами заказчика', 'Документация', '92tUWDNlJmFiQq0wIYQ9o8HWgwKqlnCPjVDtnZ2k.jpeg', 'QXpFSBLFEUaR4YmnR9JSv9dVgEPoy6RQE7UKbqAZ.jpeg'),
-(3, 'ru', 'Эксплуатация', 'Сопровождение, сервисная поддержка, консультирование специалистов заказчика', 'Проактивный мониторинг', 'Обучение персонала заказчика', 'B2v3FWoMFMzKdoTfpqJwtmqccvJQtqGhwbnZ4Qmn.jpeg', NULL),
-(4, 'ru', 'Оптимизация', 'Аудит, сбор обратной связи и&nbsp;новых требований', 'Разработка концепции развития', 'Формирование Roadmap по&nbsp;развитию и&nbsp;улучшению,\n                                                        модернизации IТ-услуги', 'qNVYbAfSa4LSVCfx5zAGQBjBHEikUx8EgPIq3tXP.jpeg', 'spKKhfeSoZRdnte2WjB73hG8d8LIz7oeh0umsb9Q.jpeg'),
-(6, 'ab', '<div>qwe</div>', '<div>qwe</div>', '<div>qwe</div>', '<div>qwe</div>', '19. Самолеты.jpg', NULL);
+(3, 'ru', 'Эксплуатация', 'Сопровождение, сервисная поддержка, консультирование специалистов заказчика', 'Проактивный мониторинг', 'Обучение персонала заказчика', 'B2v3FWoMFMzKdoTfpqJwtmqccvJQtqGhwbnZ4Qmn.jpeg', ''),
+(4, 'ru', 'Оптимизация', 'Аудит, сбор обратной связи и&nbsp;новых требований', 'Разработка концепции развития', 'Формирование Roadmap по&nbsp;развитию и&nbsp;улучшению,\n                                                        модернизации IТ-услуги', 'qNVYbAfSa4LSVCfx5zAGQBjBHEikUx8EgPIq3tXP.jpeg', 'spKKhfeSoZRdnte2WjB73hG8d8LIz7oeh0umsb9Q.jpeg');
 
 -- --------------------------------------------------------
 
@@ -366,7 +359,7 @@ CREATE TABLE `solutions` (
   `position` int(11) NOT NULL,
   `lang` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `mainname` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blockname` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `blockname` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -386,6 +379,7 @@ INSERT INTO `solutions` (`id`, `position`, `lang`, `mainname`, `blockname`) VALU
 
 CREATE TABLE `solutionsitems` (
   `id` int(11) NOT NULL,
+  `cat_id` int(11) DEFAULT NULL,
   `lang` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `position` int(11) NOT NULL,
   `mainname` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -396,19 +390,19 @@ CREATE TABLE `solutionsitems` (
 -- Дамп данных таблицы `solutionsitems`
 --
 
-INSERT INTO `solutionsitems` (`id`, `lang`, `position`, `mainname`, `text`) VALUES
-(1, 'ru', 1, 'Серверы', 'Стоечные'),
-(2, 'ru', 2, 'Серверы', 'Напольные'),
-(3, 'ru', 4, 'Серверы', 'Высокопроизводительные системы'),
-(4, 'ru', 3, 'Серверы', 'Blade системы'),
-(5, 'ru', 1, 'Системы хранения данных', 'Начального'),
-(6, 'ru', 2, 'Системы хранения данных', 'All-Flash и гибридные'),
-(7, 'ru', 3, 'Системы хранения данных', 'Для систем резервного копирования'),
-(8, 'ru', 4, 'Системы хранения данных', 'Программно-определяемые'),
-(9, 'ru', 1, 'Сетевое оборудование', 'Межсетевые экраны'),
-(10, 'ru', 2, 'Сетевое оборудование', 'Коммутаторы'),
-(11, 'ru', 3, 'Сетевое оборудование', 'Маршрутизаторы'),
-(12, 'ru', 4, 'Сетевое оборудование', 'Беспроводное оборудование');
+INSERT INTO `solutionsitems` (`id`, `cat_id`, `lang`, `position`, `mainname`, `text`) VALUES
+(1, 1, 'ru', 1, 'Серверы', 'Стоечные'),
+(2, 1, 'ru', 2, 'Серверы', 'Напольные'),
+(3, 1, 'ru', 4, 'Серверы', 'Высокопроизводительные системы'),
+(4, 1, 'ru', 3, 'Серверы', 'Blade системы'),
+(5, 2, 'ru', 1, 'Системы хранения данных', 'Начального'),
+(6, 2, 'ru', 2, 'Системы хранения данных', 'All-Flash и гибридные'),
+(7, 2, 'ru', 3, 'Системы хранения данных', 'Для систем резервного копирования'),
+(8, 2, 'ru', 4, 'Системы хранения данных', 'Программно-определяемые'),
+(9, 3, 'ru', 1, 'Сетевое оборудование', 'Межсетевые экраны'),
+(10, 3, 'ru', 2, 'Сетевое оборудование', 'Коммутаторы'),
+(11, 3, 'ru', 3, 'Сетевое оборудование', 'Маршрутизаторы'),
+(12, 3, 'ru', 4, 'Сетевое оборудование', 'Беспроводное оборудование');
 
 -- --------------------------------------------------------
 
@@ -439,13 +433,6 @@ INSERT INTO `user` (`id`, `email`, `password`, `roles`) VALUES
 --
 ALTER TABLE `aboutcompany`
   ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_880E0D76E7927C74` (`email`);
 
 --
 -- Индексы таблицы `blocks`
@@ -493,6 +480,7 @@ ALTER TABLE `feedback`
 -- Индексы таблицы `navigation`
 --
 ALTER TABLE `navigation`
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -520,6 +508,20 @@ ALTER TABLE `solutions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `solutionsitems`
+--
+ALTER TABLE `solutionsitems`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_BBB1C987E6ADA943` (`cat_id`);
+
+--
+-- Индексы таблицы `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -536,16 +538,86 @@ ALTER TABLE `blocks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблицы `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT для таблицы `config`
+--
+ALTER TABLE `config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `equipmentsubs`
+--
+ALTER TABLE `equipmentsubs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT для таблицы `navigation`
 --
 ALTER TABLE `navigation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT для таблицы `requisites`
+--
+ALTER TABLE `requisites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT для таблицы `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT для таблицы `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `solutions`
+--
+ALTER TABLE `solutions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `solutionsitems`
+--
+ALTER TABLE `solutionsitems`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `solutionsitems`
+--
+ALTER TABLE `solutionsitems`
+  ADD CONSTRAINT `FK_BBB1C987E6ADA943` FOREIGN KEY (`cat_id`) REFERENCES `solutions` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

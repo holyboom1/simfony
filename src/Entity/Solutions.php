@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SolutionsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,18 @@ class Solutions
      * @ORM\Column(type="text")
      */
     private $blockname;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Solutionsitems::class, mappedBy="cat")
+     */
+    private $cat;
+
+    public function __construct()
+    {
+        $this->cat = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -89,4 +103,36 @@ class Solutions
 
         return $this;
     }
+
+    /**
+     * @return Collection|Solutionsitems[]
+     */
+    public function getCat(): Collection
+    {
+        return $this->cat;
+    }
+
+    public function addCat(Solutionsitems $cat): self
+    {
+        if (!$this->cat->contains($cat)) {
+            $this->cat[] = $cat;
+            $cat->setCat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCat(Solutionsitems $cat): self
+    {
+        if ($this->cat->removeElement($cat)) {
+            // set the owning side to null (unless already changed)
+            if ($cat->getCat() === $this) {
+                $cat->setCat(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

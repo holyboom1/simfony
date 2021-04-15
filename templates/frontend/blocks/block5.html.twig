@@ -2,7 +2,7 @@
 
 
 {% block body %}
-
+{{ dump(solutions) }}
     <div class="solutions-box" id="solutions">
         <div class="solutions-box__wrap inner-box">
             <div class="solutions-box__title-box">
@@ -37,7 +37,7 @@
                                         <div class="solutions-box-list-info">
                                             <ul>
                                                 {% for items in item.items %}
-                                                    <li>{{ items.text }}</li>
+                                                    <li>{{ items.text  }}</li>
                                                 {% endfor %}
 
                                             </ul>

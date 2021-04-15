@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SolutionsitemsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,12 @@ class Solutionsitems
      * @ORM\Column(type="text")
      */
     private $text;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Solutions::class, inversedBy="cat")
+     */
+    private $cat;
+
 
     public function getId(): ?int
     {
@@ -89,4 +97,19 @@ class Solutionsitems
 
         return $this;
     }
+
+    public function getCat(): ?Solutions
+    {
+        return $this->cat;
+    }
+
+    public function setCat(?Solutions $cat): self
+    {
+        $this->cat = $cat;
+
+        return $this;
+    }
+
+
+
 }

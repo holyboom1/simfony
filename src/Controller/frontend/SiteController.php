@@ -43,9 +43,10 @@ class SiteController extends AbstractController
         $services = $this->getDoctrine()->getRepository(Services::class)->findBy(["lang" => "ru"], ['position' => 'ASC']);
         $solutions = $this->getDoctrine()->getRepository(Solutions::class)->findBy(["lang" => "ru"], ['position' => 'ASC']);
         $brands = $this->getDoctrine()->getRepository(Brands::class)->findBy([], ['position' => 'ASC']);
-        for ($i = 0; $i < count($solutions); $i++) {
-            $solutions[$i]->items = $this->getDoctrine()->getRepository(Solutionsitems::class)->findBy(['mainname' => $solutions[$i]->getMainname()], ['position' => 'ASC']);
+                for ($i = 0; $i < count($solutions); $i++) {
+                    $solutions[$i]->items = $solutions[$i]->getCat()->toArray();
         };
+
         $config = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang' => 'ru'], []);
         $req = $this->getDoctrine()->getRepository(Requisites::class)->findBy(['lang' => 'ru'], []);
 
