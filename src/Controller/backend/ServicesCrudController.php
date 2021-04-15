@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\LanguageField;
@@ -31,6 +32,7 @@ class ServicesCrudController extends AbstractCrudController
             TextEditorField::new('name', 'Название'),
             TextField::new('src', 'Ссылка')->setRequired(false),
             TextField::new('urltext', 'Текст ссылки')->setRequired(false),
+
         ];
     }
 
