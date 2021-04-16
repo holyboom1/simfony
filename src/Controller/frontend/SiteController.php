@@ -60,7 +60,7 @@ class SiteController extends AbstractController
         $fb = new Feedback();
         $form = $this->createForm(FeedbackType::class, $fb);
         $form->handleRequest($request);
-
+//        var_dump( $em = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang'=>'ru']));
         if ($form->isSubmitted()) {
             $fb->setCreateAt(new \DateTimeImmutable(date('Y-m-d H:i:s')));
             $em = $this->getDoctrine()->getManager();
