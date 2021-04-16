@@ -4,6 +4,7 @@ namespace App\Controller\backend;
 
 use App\Entity\Aboutcompany;
 use App\Entity\Blocks;
+use App\Entity\Brands;
 use App\Entity\Config;
 use App\Entity\Feedback;
 use App\Entity\Navigation;
@@ -51,8 +52,7 @@ class BackendController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Слайдер', 'fa fa-clone', Slider::class),
             yield MenuItem::linkToCrud('Услуги', 'fa fa-atom', Services::class),
             yield MenuItem::linkToCrud('Решения', 'fa fa-hand-spock', Solutions::class),
-            yield MenuItem::linkToCrud('Решения', 'fa fa-hand-spock', Solutionsitems::class),
-
+            yield MenuItem::linkToCrud('Брэнды', 'fa fa-copyright', Brands::class),
 //            yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
             yield MenuItem::linkToCrud('Feedback', 'fas fa-comments', Feedback::class),
 

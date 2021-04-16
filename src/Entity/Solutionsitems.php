@@ -110,6 +110,10 @@ class Solutionsitems
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->text; // <-- add here a real property which
+    }
 
 
 }

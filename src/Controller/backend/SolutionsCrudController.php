@@ -4,13 +4,24 @@ namespace App\Controller\backend;
 
 use App\Entity\Services;
 use App\Entity\Solutions;
+use App\Field\OneToManyField;
+use App\Form\ListType;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\LanguageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -27,9 +38,15 @@ class SolutionsCrudController extends AbstractCrudController
         return [
             LanguageField::new('lang', 'Язык'),
             IntegerField::new('position', 'Очередность')->onlyOnIndex(),
-            TextEditorField::new('mainname', 'Название'),
-            TextField::new('src', 'Ссылка')->setRequired(false),
-            TextField::new('urltext', 'Текст ссылки')->setRequired(false),
+            TextField::new('mainname', 'Название'),
+//            CollectionField::new('cat')
+//                ->onlyOnForms()
+//                ->setTemplatePath('/backend/list.html.twig')
+            CollectionField::new('cat', 'Содержимое категории')
+//                ->setEntryType(ListType::class)
+//                ->setTemplatePath('/backend/list.html.twig')
+
+
         ];
     }
 
