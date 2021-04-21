@@ -2,6 +2,7 @@
 
 namespace App\Controller\frontend;
 
+use App\Controller\MailerController;
 use App\Entity\Aboutcompany;
 use App\Entity\Blocks;
 use App\Entity\Brands;
@@ -20,6 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -62,7 +64,11 @@ class SiteController extends AbstractController
         $form->handleRequest($request);
 //        var_dump( $em = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang'=>'ru']));
         if ($form->isSubmitted()) {
+
             $fb->setCreateAt(new \DateTimeImmutable(date('Y-m-d H:i:s')));
+
+            $mail= new MailerController();
+            $mail->mail = "asdasd";
             $em = $this->getDoctrine()->getManager();
             $em->persist($fb);
             $em->flush();
