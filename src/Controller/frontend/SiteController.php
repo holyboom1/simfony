@@ -45,8 +45,8 @@ class SiteController extends AbstractController
         $services = $this->getDoctrine()->getRepository(Services::class)->findBy(["lang" => "ru"], ['position' => 'ASC']);
         $solutions = $this->getDoctrine()->getRepository(Solutions::class)->findBy(["lang" => "ru"], ['position' => 'ASC']);
         $brands = $this->getDoctrine()->getRepository(Brands::class)->findBy([], ['position' => 'ASC']);
-                for ($i = 0; $i < count($solutions); $i++) {
-                    $solutions[$i]->items = $solutions[$i]->getCat()->toArray();
+        for ($i = 0; $i < count($solutions); $i++) {
+            $solutions[$i]->items = $solutions[$i]->getCat()->toArray();
         };
 
         $config = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang' => 'ru'], []);
@@ -64,11 +64,8 @@ class SiteController extends AbstractController
         $form->handleRequest($request);
 //        var_dump( $em = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang'=>'ru']));
         if ($form->isSubmitted()) {
-
+            $this->sendMail();
             $fb->setCreateAt(new \DateTimeImmutable(date('Y-m-d H:i:s')));
-
-            $mail= new MailerController();
-            $mail->mail = "asdasd";
             $em = $this->getDoctrine()->getManager();
             $em->persist($fb);
             $em->flush();
@@ -77,7 +74,7 @@ class SiteController extends AbstractController
             $fb = new Feedback();
             $form = $this->createForm(FeedbackType::class, $fb);
 
-            return $this->redirect($request->getUri()) ;
+            return $this->redirect($request->getUri());
 
 
         }
@@ -99,5 +96,9 @@ class SiteController extends AbstractController
         ]);
     }
 
-
+    public function sendMail()
+    {
+        $mail=MailerController::class;
+        $mail->sendEmail('123123');
+    }
 }

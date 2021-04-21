@@ -15,14 +15,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class MailerController extends AbstractController
 {
 
-    public $mail;
+    private $mailer;
+
+    public function __construct(MailerInterface $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
+//    public function sendEmail($to, $subject, $texto) {
+//        $message = (new \Swift_Message($subject))
+//            ->setFrom('juanitourquiza@gmail.com')
+//            ->setTo($to)
+//            ->setBody(($texto),'text/html');
+//        return $this->mailer->send($message);
+//    }
+//}
 
 //    /**
 //     * @Route("/email")
 //     */
-    public function sendEmail(MailerInterface $mailer )
+    public function sendEmail( $text  )
     {
-
 //        $em = $this->getDoctrine()->getRepository(Config::class)->findOneBy(['lang'=>'ru'])->getAdminEmail();
 //        $email = (new TemplatedEmail())
 //            ->from($em)
@@ -36,19 +49,15 @@ class MailerController extends AbstractController
 //            ->htmlTemplate('mail/email.html.twig');
 //
 //        $mailer->send($email);
-
-        print_r($this->mail);
+//        var_dump($request);
         $email = (new Email())
             ->from('weqwe@qweqw.com')
             ->to('asdads@asd.com')
             ->subject('asdasd')
-            ->html('<p>asdasd</p>');
+            ->html('<p>'.$text.'</p>');
 
-        $mailer->send($email);
+        $this->mailer->send($email);
 
 
-        return new Response("email send");
-
-        // ...
     }
 }
