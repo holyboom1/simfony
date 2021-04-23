@@ -1,0 +1,61 @@
+{% extends 'frontend/header/header.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="nav-mob js-nav-mob">
+        <button class="nav-mob__close js-nav-mob-close" type="button">
+            <span class="i-close"></span>
+        </button>
+        <div class="nav-mob__wrap inner">
+            <div class="nav-mob-header">
+                <a href="/" class="nav-mob-header__logo logo">
+                    <img src="{{ asset('assets/html/img/logo.svg') }}" alt="">
+                </a>
+            </div>
+            <div class="nav-mob-content">
+                {% for item in navigation %}
+                    <div class="nav-mob-content__box">
+                        <a href="{{ item.url }}" class="nav-mob-content__link js-menu-nav">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="nav-mob-info">
+            <div class="nav-mob-info__inner inner">
+                <div class="nav-mob-info__wrapper">
+                    <div class="nav-mob-info__phone">
+                        <a href="tel:{{config.adminphone}}">{{config.adminphone}}</a>
+                    </div>
+                    <div class="nav-mob-info__btn-box">
+                        <button type="button" class="nav-mob-info__btn btn btn--type-1 js-modal-link" data-id="#feedback"> {% trans %}заказать{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-mob-footer">
+            <div class="nav-mob-footer__inner inner">
+                <div class="nav-mob-footer__wrapper">
+                    <div class="nav-mob-footer__box">
+                        <div class="nav-mob-footer__item">
+                            <div class="nav-mob-footer__copyright copyright">
+                                {{ config.copyr }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-mob-footer__box">
+                        <div class="nav-mob-footer__item">
+                            <div class="nav-mob-footer__ctm ctm">
+                                <div class="ctm__name">
+                                    <a href="https://simple.solutions/gb/" rel="nofollow" class="ctm__link" target="_blank">{{ config.developby }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

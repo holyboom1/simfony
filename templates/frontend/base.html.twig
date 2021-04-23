@@ -8,7 +8,7 @@
               content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
         <meta name="HandheldFriendly" content="True">
 
-        <title>{% block title %}IMBA-IT – Системный интегратор{% endblock %}</title>
+        <title>{% block title %}{% trans %}IMBA-IT – Системный интегратор{% endtrans %}{% endblock %}</title>
         <meta name="keywords" content="IMBA-IT,системный интегратор,HPE">
         <meta name="description" content="IMBA-IT – реализуем комплексные IТ-проекты">
 
@@ -80,7 +80,7 @@
                 </button>
                 <div class="modal-form__content">
                     <div class="modal-form__title">
-                        Cпасибо за заявку
+                        {% trans %}Cпасибо за заявку{% endtrans %}
                     </div>
                 </div>
             </div>
@@ -90,7 +90,9 @@
 
     </div>
 
+         {{ include('frontend/footer/footer.html.twig', {'config': config }) }}
 
+    {{ include('frontend/header/navigation/index_mob.html.twig',  {'navigation' : navigation , 'config': config }) }}
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('assets/html/js/jquery-3.4.1.min.js') }}"></script>

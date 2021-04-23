@@ -30,14 +30,14 @@
                                             </svg>
                                         </div>
                                         <div class="solutions-box-list__name">
-                                            {{ item.mainname }}
+                                            {{ item.mainname | raw }}
                                         </div>
                                     </div>
                                     <div class="solutions-box-list__overlay back">
                                         <div class="solutions-box-list-info">
                                             <ul>
                                                 {% for items in item.items %}
-                                                    <li>{{ items.text  }}</li>
+                                                    <li>{{ items.text  | raw }}</li>
                                                 {% endfor %}
 
                                             </ul>
@@ -53,7 +53,7 @@
             <div class="solutions-box__btn-box" data-aos="fade-up">
                 <button type="button" class="solutions-box__btn btn btn--type-1 js-modal-link"
                         data-id="#feedback">
-                    заказать
+                    {% trans %}заказать{% endtrans %}
                 </button>
             </div>
         </div>

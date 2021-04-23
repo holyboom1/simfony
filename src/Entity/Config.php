@@ -45,6 +45,16 @@ class Config
     /**
      * @ORM\Column(type="text")
      */
+    private $developby;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $copyr;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     private $blockname;
 
     /**
@@ -137,6 +147,30 @@ class Config
     public function setLang(string $lang): self
     {
         $this->lang = $lang;
+
+        return $this;
+    }
+
+    public function getDevelopby(): ?string
+    {
+        return $this->developby;
+    }
+
+    public function setDevelopby(string $developby): self
+    {
+        $this->lang = $developby;
+
+        return $this;
+    }
+
+    public function getCopyr(): ?string
+    {
+        return $this->copyr;
+    }
+
+    public function setCopyr(string $copyr): self
+    {
+        $this->lang = $copyr;
 
         return $this;
     }
